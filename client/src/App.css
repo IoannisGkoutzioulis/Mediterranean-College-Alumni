@@ -1,0 +1,618 @@
+/* ===============================
+   GLOBAL STYLES & VARIABLES
+   =============================== */
+:root {
+  --primary-color: #0056b3;
+  --primary-dark: #004494;
+  --primary-light: #3383ce;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --body-bg: #f5f5f5;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: var(--body-bg);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.btn {
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* ===============================
+   LAYOUT COMPONENTS
+   =============================== */
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.navbar-brand img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-light) !important;
+}
+
+/* Dropdown fixes */
+.dropdown-menu {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 0.25rem;
+  min-width: 10rem;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+}
+
+/* Dropdown animation */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu.show {
+  animation: dropdownFadeIn 0.2s ease-out;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 3rem 0 1.5rem;
+}
+
+footer h5 {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+footer .text-muted {
+  color: #adb5bd !important;
+}
+
+footer .bi {
+  transition: transform 0.3s ease;
+}
+
+footer .bi:hover {
+  transform: translateY(-3px);
+}
+
+/* ===============================
+   COMPONENT SPECIFIC STYLES
+   =============================== */
+
+/* Home Page */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 0.75rem;
+}
+
+/* Cards with hover effect */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  box-shadow: var(--card-shadow);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Authentication Forms */
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+}
+
+/* Profile styles */
+.profile-header {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h2 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.profile-details {
+  margin-top: 2rem;
+}
+
+.profile-bio {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.status-pending {
+  background-color: var(--warning-color);
+}
+
+.status-approved {
+  background-color: var(--success-color);
+}
+
+.status-rejected {
+  background-color: var(--danger-color);
+}
+
+/* Dashboard cards */
+.dashboard-card {
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Icon circle for dashboard cards */
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Dashboard section styles */
+.dashboard-section {
+  padding: 2rem 0;
+}
+
+.dashboard-section-title {
+  border-left: 4px solid #0d6efd;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-stat {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-stat-label {
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+/* Admin Dashboard */
+.nav-tabs .nav-link {
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  background-color: transparent;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  font-weight: 600;
+  border-top: none;
+}
+
+.table td, .table th {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* Student Directory */
+.student-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.student-card-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  border: 4px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.student-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.student-info {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.student-school {
+  display: inline-block;
+  font-size: 0.85rem;
+  background-color: var(--light-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.student-year {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+/* Calendar specific styles */
+.calendar {
+  width: 100%;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  color: var(--dark-color);
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1px;
+  background-color: #eee;
+}
+
+.calendar-day {
+  aspect-ratio: 1/1;
+  padding: 8px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+  background-color: #f5f5f5;
+}
+
+.calendar-day.empty {
+  background-color: #f9f9f9;
+  cursor: default;
+}
+
+.calendar-day.today {
+  background-color: #e6f7ff;
+}
+
+.calendar-day.selected {
+  background-color: #e6f0ff;
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+.calendar-day.has-classes {
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.day-number {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.day-classes {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.class-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 2px;
+}
+
+.class-count {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.class-list {
+  padding: 10px;
+}
+
+.class-item {
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.2s ease;
+}
+
+.class-item:hover {
+  transform: translateX(5px);
+}
+
+.modal-backdrop {
+  opacity: 0.5;
+}
+
+/* Job posting styles */
+.job-card {
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.job-company {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.job-badge {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.job-badge i {
+  margin-right: 0.25rem;
+}
+
+.job-description {
+  margin: 1.5rem 0;
+  color: #555;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+}
+
+.job-meta-item i {
+  margin-right: 0.5rem;
+}
+
+.application-item {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--light-color);
+  transition: all 0.2s ease;
+}
+
+.application-item:hover {
+  background-color: #f0f0f0;
+}
+
+.application-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.application-content {
+  padding: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
+  .navbar-brand img {
+    height: 30px;
+  }
+  
+  .profile-header {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+  
+  .dashboard-stat {
+    font-size: 1.5rem;
+  }
+  
+  .table-responsive {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .calendar-day {
+    padding: 4px;
+  }
+  
+  .day-number {
+    font-size: 12px;
+  }
+  
+  .calendar-header {
+    font-size: 12px;
+  }
+
+  .job-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Bootstrap Icon Import */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
